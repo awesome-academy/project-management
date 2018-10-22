@@ -1,0 +1,14 @@
+<footer class="footer">
+  <small>
+    <%= link_to t("static.source_code"), Settings.static.link_to_github %>
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to t("static.about"), about_path %></li>
+      <li><%= link_to t("static.contact"), contact_path %></li>
+    </ul>
+  </nav>
+</footer>
+<br>
+<%= link_to t("static.english"), locale: "en" %>
+<%= link_to t("static.vietnamese"), locale: "vi" %>

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%=t "nameproject" %></title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-</head>
-<body>
-<%= yield %>
-</body>
+  <head>
+    <title><%= yield :title %> | <%= t "static.body_tilte" %></title>
+    <%= render "layouts/rails_default" %>
+    <%= render "layouts/shim" %>
+  </head>
+  <body>
+    <%= render "layouts/header" %>
+    <div class="container">
+      <%= yield %>
+      <%= render "layouts/footer" %>
+    </div>
+  </body>
 </html>
