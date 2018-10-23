@@ -22,3 +22,12 @@ en:
     contact_infor: "FRESHER-GROUP2-RUBY"
     help_content: ">>>>is under construction<<<<"
     welcome: "Wellcome to SPM!"
+  signup:
+    sign_up: "Sign up"
+  login:
+    login: "Login"
+    new_user: "New user?"
+    sign_up_now: "Sign up now!"
+    wrong_login: "Invalid email/password combination"
+  side_bar:
+    dashboard: "Dash Board"
