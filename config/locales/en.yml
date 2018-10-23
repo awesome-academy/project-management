@@ -37,3 +37,16 @@ en:
   project:
     new_project: "Create new project"
     all_project: "All your project"
+    not_found: "not found"
+  task:
+    created: "Task created!"
+    uncreated: "Task uncreated!"
+    deleted: "Task deleted!"
+    delete_error: "Task delete error"
+    delete: "delete"
+    delete_confirm: "You sure?"
+    open: "open"
+    ago: "ago"
+    create: "Creat new task"
+    placeholder: "Enter name task "
+    not_found: "not found"

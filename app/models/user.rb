@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :cards
   has_many :relationships
+  has_many :projects, through: :relationships
   has_many :events
+  has_many :tasks, through: :projects
   before_save {email.downcase!}
   validates :name, presence: true,
     length: {maximum: Settings.constant.name_max_length}

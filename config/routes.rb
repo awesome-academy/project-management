@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
   resources :users
-  resources :projects
+  resources :projects do
+    resources :tasks, only: %i(create destroy)
+  end
 end

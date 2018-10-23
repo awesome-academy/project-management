@@ -3,11 +3,20 @@ class ProjectsController < ApplicationController
   before_action :validate_login
 
   def index
-    @project = Project.get_by_user(current_user)
+    @projects = Project.get_by_user(current_user)
       .page(params[:page]).per Settings.constant.project_per_page
   end
 
-  def show; end
+  def show
+    @project = Project.find_by id: params[:id]
+    if @project
+      @task = Task.new
+      @tasks = @project.tasks.order_by_created_at_desc
+    else
+      flash[:danger] = t "project.not_found"
+      redirect_to projects_path
+    end
+  end
 
   def new
     @project = Project.new
@@ -22,8 +31,8 @@ class ProjectsController < ApplicationController
       relationship.save!
       redirect_to projects_path
     end
-    rescue ActiveRecord::RecordInvalid
-      render :new
+  rescue ActiveRecord::RecordInvalid
+    render :new
   end
 
   private
