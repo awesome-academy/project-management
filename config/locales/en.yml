@@ -1,3 +1,24 @@
 en:
-  hello: "Hello world"
-  nameproject: "ProjectManagement"
+  nameproject: "SPM"
+  static:
+    body_tilte: " Simple Project Management"
+    the: "The"
+    source_code: "Source code in github"
+    english: "English"
+    vietnamese: "Vietnamese"
+    about: "About"
+    contact: "Contact"
+    home: "Home"
+    help: "Help"
+    sign_up: "Sign up"
+    login: "Login"
+    about_title : ">>>SPM<<<"
+    about_content: " Project Management (like Trello https://trello.com)
+                    Start: Oct, 18 2018 <br>
+                    Members:
+                    1, Dương Tuấn Nhật (fresher)
+                    2, Hà Đức Quảng (fresher)"
+    contact_me: "Contact me"
+    contact_infor: "FRESHER-GROUP2-RUBY"
+    help_content: ">>>>is under construction<<<<"
+    welcome: "Wellcome to SPM!"

@@ -1,0 +1,5 @@
+enabled_locales: ["en", "vi"]
+static:
+  app_name: "SPM"
+  link_to_github: "https://github.com/awesome-academy/project-management"
+  contact_link: "https://github.com/awesome-academy/project-management"
