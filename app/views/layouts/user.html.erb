@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %> | <%= t "static.body_tilte" %></title>
+    <%= render "layouts/rails_default" %>
+    <%= render "layouts/shim" %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#">
+              <%= t "side_bar.dashboard" %>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

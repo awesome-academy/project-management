@@ -3,3 +3,7 @@ static:
   app_name: "SPM"
   link_to_github: "https://github.com/awesome-academy/project-management"
   contact_link: "https://github.com/awesome-academy/project-management"
+constant:
+  name_max_length: 50
+  email_max_length: 255
+  password_min_length: 6
