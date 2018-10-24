@@ -6,21 +6,25 @@
     <%= render "layouts/shim" %>
   </head>
   <body>
-    <div id="wrapper">
-      <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li class="sidebar-brand">
-            <a href="#">
-              <%= t "side_bar.dashboard" %>
-            </a>
-          </li>
-        </ul>
-      </div>
+  <div id="wrapper" class="toggled">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <%= link_to t("side_bar.dashboard"), projects_path %>
+        </li>
+        <li>
+          <%= link_to t("side_bar.new_project"), new_project_path %>
+        </li>
+        <li>
+          <%= link_to t("side_bar.sign_out"), logout_path, method: :delete %>
+        </li>
+      </ul>
     </div>
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <%= yield %>
       </div>
     </div>
+  </div>
   </body>
 </html>

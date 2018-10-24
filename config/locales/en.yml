@@ -29,5 +29,11 @@ en:
     new_user: "New user?"
     sign_up_now: "Sign up now!"
     wrong_login: "Invalid email/password combination"
+    required: "Login before continue"
   side_bar:
     dashboard: "Dash Board"
+    sign_out: "Sign out"
+    new_project: "New Project"
+  project:
+    new_project: "Create new project"
+    all_project: "All your project"
