@@ -1,9 +1,9 @@
 <% provide :title, t("project.all_project") %>
 <h1 class="my-4"><%= t "project.all_project" %></h1>
 <div class="row">
-  <% @project.each do |project| %>
+  <% @projects.each do |project| %>
     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-      <%= link_to "#" do %>
+      <%= link_to project do %>
         <div class="card h-100">
           <div class="card-body">
             <h4 class="card-title">
