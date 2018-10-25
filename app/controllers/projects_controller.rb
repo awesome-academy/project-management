@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   layout "user"
-  before_action :validate_login
+  before_action :authenticate_user!
   before_action :get_project, only: %i(show_member add_member show)
 
   def index
@@ -66,12 +66,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-  def validate_login
-    return if logged_in?
-    flash[:danger] = t "login.required"
-    redirect_to login_url
-  end
 
   def project_create_params
     params.require(:project).permit :name, :describe

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "session#destroy"
   resources :users
   resources :projects do
-    resources :tasks, only: %i(create destroy)
+    resources :tasks, only: %i(create destroy) do
+      resources :cards, shallow: true
+    end
     member do
       get "/show_member", to: "projects#show_member"
       post "/add_member", to: "projects#add_member"
