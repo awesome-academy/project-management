@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    redirect_to projects_path if logged_in?
+  end
 
   def help; end
 

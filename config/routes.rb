@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   resources :users
   resources :projects do
     resources :tasks, only: %i(create destroy)
+    member do
+      get "/show_member", to: "projects#show_member"
+      post "/add_member", to: "projects#add_member"
+      delete "/delete_member", to: "projects#remove_member"
+    end
   end
 end

@@ -143,3 +143,12 @@ footer {
   border-top-left-radius: calc(.25rem - 1px);
   border-top-right-radius: calc(.25rem - 1px);
 }
+.col-centered {
+  float: none;
+  text-align: left;
+  margin-right: -4px;
+  text-align: center;
+  border: 1px solid #0000FF;
+  padding: 30px;
+  margin: 20px auto;
+}

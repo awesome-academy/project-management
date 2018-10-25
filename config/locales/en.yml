@@ -38,6 +38,7 @@ en:
     new_project: "Create new project"
     all_project: "All your project"
     not_found: "not found"
+    project_not_found: "Project not found"
   task:
     created: "Task created!"
     uncreated: "Task uncreated!"
@@ -50,3 +51,10 @@ en:
     create: "Creat new task"
     placeholder: "Enter name task "
     not_found: "not found"
+  member:
+    add_member: "Add"
+    email_not_found: "Email not found"
+    user_in_project: "This user already involve this project"
+    member: "Project member"
+    add_error: "Cannot add user to this project"
+    remove_error: "Cannot remove this user"
