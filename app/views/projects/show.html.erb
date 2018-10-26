@@ -1,4 +1,5 @@
 <% provide :title, @project.name %>
+<h1><%= @project.name %></h1>
 <%= render "tasks/form" %>
 <% if @project.tasks.any? %>
   <ol class="tasks">

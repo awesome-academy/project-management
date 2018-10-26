@@ -1,0 +1,14 @@
+<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+  <div class="card h-100">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= link_to card.name, "#" %> <small>
+      </small>
+      </h4>
+      <p class="card-text"><%= card.describe %></p>
+      <%= link_to t("card.delete"), card_path(card.id), method: :delete,
+        data: {confirm: t("card.delete_confirm")} %>
+      <%= link_to t("card.edit"), edit_card_path(card.id) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @card do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.collection_select :task_id, @project.tasks, :id, :name %>
+      <%= f.text_field :name, class: "form-control", placeholder: t("card.placeholder_name") %>
+      <%= f.text_field :describe, class: "form-control", placeholder: t("card.placeholder_describe") %>
+      <%= f.check_box :activated %> <span><%= t "card.activated" %></span>
+      <%= f.submit t("card.updated"), class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
+</div>

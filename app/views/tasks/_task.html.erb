@@ -1,4 +1,4 @@
-<h1 id="task-<%= task.id %>">
+<h1 class="text-left" id="task-<%= task.id %>">
   <%= task.name %>
   <small>
     <span class="timestamp">
@@ -11,4 +11,10 @@
   </small>
 </h1>
 <div class="row">
+  <div><%= render task.cards %></div>
+  <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+    <div class="card h-100">
+      <%= link_to t("card.create"), new_project_task_card_path(@project, task), class: "btn btn-log btn-primary" %>
+    </div>
+  </div>
 </div>

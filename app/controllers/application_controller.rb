@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def self.default_url_options
     {locale: I18n.locale}
   end
+
+  def authenticate_user!
+    return if logged_in?
+    flash[:danger] = t "login.required"
+    redirect_to login_url
+  end
 end

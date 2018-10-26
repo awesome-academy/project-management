@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :logged_in?, only: %i(create destroy)
+  before_action :authenticate_user!
 
   def create
     @project = Project.find_by id: params[:project_id]
