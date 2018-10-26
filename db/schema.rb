@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_142426) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "card_id"
     t.bigint "user_id"
-    t.string "type"
+    t.integer "event_type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

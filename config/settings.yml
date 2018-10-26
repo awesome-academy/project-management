@@ -8,3 +8,4 @@ constant:
   email_max_length: 255
   password_min_length: 6
   project_per_page: 8
+  event_per_page: 10

@@ -11,7 +11,7 @@
       <div class="list-header-extras">
         <%= link_to project_task_path(@project, task),
           class: "list-header-extras-menu dark-hover icon-lg",
-          method: :delete  do %>
+          method: :delete , data: {confirm: t("task.delete_confirm")} do  %>
           <button class="btn btn-danger btn-xs">X</button>
         <% end %>
       </div>
