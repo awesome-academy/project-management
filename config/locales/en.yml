@@ -34,6 +34,9 @@ en:
     dashboard: "Dash Board"
     sign_out: "Sign out"
     new_project: "New Project"
+    member: "Member"
+    project: "Project"
+    close: "Close"
   project:
     new_project: "Create new project"
     all_project: "All your project"
@@ -51,6 +54,7 @@ en:
     create: "Creat new task"
     placeholder: "Enter name task "
     not_found: "not found"
+    create_task: "Create task"
   member:
     add_member: "Add"
     email_not_found: "Email not found"
@@ -75,3 +79,5 @@ en:
     edit: "edit"
     updated: "updated"
     close: "Close"
+    card: "card"
+    add_card: "Add card"

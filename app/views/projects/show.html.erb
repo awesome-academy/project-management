@@ -1,8 +1,10 @@
 <% provide :title, @project.name %>
-<h1><%= @project.name %></h1>
-<%= render "tasks/form" %>
-<% if @project.tasks.any? %>
-  <ol class="tasks">
-    <%= render @tasks %>
-  </ol>
-<% end %>
+<div class="row board-main-content">
+  <div class="board-canvas">
+    <div id="board">
+      <% @tasks.each do |task| %>
+        <%= render task %>
+      <% end %>
+    </div>
+  </div>
+</div>

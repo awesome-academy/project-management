@@ -1,20 +1,33 @@
-<h1 class="text-left" id="task-<%= task.id %>">
-  <%= task.name %>
-  <small>
-    <span class="timestamp">
-    <%= t "task.open" %>
-      <%= time_ago_in_words task.created_at %>
-      <%= t "task.ago" %>
-      <%= link_to t("task.delete"), project_task_url(@project, task), method: :delete,
-        data: {confirm: t("task.delete_confirm")} %>
-    </span>
-  </small>
-</h1>
-<div class="row">
-  <div><%= render task.cards %></div>
-  <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-    <div class="card h-100">
-      <%= link_to t("card.create"), new_project_task_card_path(@project, task), class: "btn btn-log btn-primary" %>
+<div class="list-wrapper">
+  <div class="list">
+    <div class="list-header">
+      <div class="list-header-target"></div>
+      <h2 class="list-header-name-assist"><%= task.name %></h2>
+      <textarea class="list-header-name mod-list-name list-name"
+        aria-label="<%= task.name %>"
+        spellcheck="false" dir="auto" maxlength="512">
+        <%= task.name %>
+      </textarea>
+      <div class="list-header-extras">
+        <%= link_to project_task_path(@project, task),
+          class: "list-header-extras-menu dark-hover icon-lg",
+          method: :delete  do %>
+          <button class="btn btn-danger btn-xs">X</button>
+        <% end %>
+      </div>
+      <p class="list-header-num-cards">
+        <%= pluralize task.cards.count, t("card.card") %>
+      </p>
     </div>
+    <div class="list-cards">
+      <% task.cards.each do |card| %>
+        <%= render "tasks/card", {card: card} %>
+      <% end %>
+    </div>
+    <%= link_to new_project_task_card_path(@project, task),
+      class: "open-card-composer" do %>
+      <span class="icon-sm glyphicon glyphicon-plus"></span>
+      <span><%= t "card.add_card" %></span>
+    <% end %>
   </div>
 </div>

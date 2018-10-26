@@ -1,0 +1,25 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <%= link_to t("side_bar.dashboard"), projects_path %>
+    </li>
+    <li>
+      <%= link_to t("side_bar.new_project"), new_project_path %>
+    </li>
+    <li>
+      <%= link_to t("side_bar.project"),
+        project_path(:id => @project.id) %>
+    </li>
+    <li>
+      <%= link_to t("side_bar.member"),
+        show_member_project_path(:id => @project.id) %>
+    </li>
+    <li>
+      <%= link_to t("task.create_task"),
+        new_project_task_path(:project_id => @project.id) %>
+    </li>
+    <li>
+      <%= link_to t("side_bar.sign_out"), logout_path, method: :delete %>
+    </li>
+  </ul>
+</div>

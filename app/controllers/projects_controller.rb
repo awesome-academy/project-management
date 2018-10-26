@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  layout "user"
+  layout :resolve_layout
   before_action :authenticate_user!
   before_action :get_project, only: %i(show_member add_member show)
 
@@ -9,13 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    if @project
-      @task = Task.new
-      @tasks = @project.tasks.order_by_created_at_desc
-    else
-      flash[:danger] = t "project.not_found"
-      redirect_to projects_path
-    end
+    @tasks = @project.tasks.order_by_created_at_desc
   end
 
   def new
@@ -80,5 +74,14 @@ class ProjectsController < ApplicationController
 
   def get_relationship user_id
     Relationship.find_by project_id: params[:id], user_id: user_id
+  end
+
+  def resolve_layout
+    case action_name
+    when "index", "new"
+      "user"
+    else
+      "user_working"
+    end
   end
 end

@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  layout "user"
+  layout "user_working"
   before_action :authenticate_user!
   before_action :load_project_and_card, only: %i(new create)
   before_action :correct_card, only: %i(edit update destroy)
@@ -9,7 +9,7 @@ class CardsController < ApplicationController
     @card = @task.cards.build card_params
     if @card.save
       flash[:success] = t "card.created"
-      redirect_to project_path @project
+      redirect_to project_path(@project)
     else
       flash[:danger] = t "card.uncreated"
       render :new
