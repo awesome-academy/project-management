@@ -1,0 +1,14 @@
+<% provide :title, t("task.create_task") %>
+<div class="row">
+  <h1><%= t "task.create_task" %></h1>
+  <div class="col-md-6 col-md-offset-3 portfolio-item">
+    <%= form_for @task, url: project_tasks_path do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="field">
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("task.placeholder")%>
+      </div>
+      <%= f.submit t("task.create"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

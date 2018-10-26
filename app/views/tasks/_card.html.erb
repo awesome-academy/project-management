@@ -1,0 +1,14 @@
+<%= link_to card, class: "list-card" do %>
+  <div class="list-card-cover"></div>
+  <span class="icon-sm icon-edit list-card-operation dark-hover"></span>
+  <div class="list-card-stickers-area">
+    <div class="stickers"></div>
+  </div>
+  <div class="list-card-details">
+    <div class="list-card-labels"></div>
+    <span class="list-card-title">
+      <%= card.name %>
+    </span>
+    <div class="list-card-members"></div>
+  </div>
+<% end %>
