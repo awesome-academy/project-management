@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   resources :users
   resources :projects do
     resources :tasks, only: %i(create destroy new) do
-      resources :cards, shallow: true
+      resources :cards, only: %i(new create)
     end
     member do
       get "/show_member", to: "projects#show_member"
       post "/add_member", to: "projects#add_member"
       delete "/delete_member", to: "projects#remove_member"
     end
+  end
+  resources :cards, only: %i(show edit update destroy) do
+    resources :events, shallow: true
   end
 end

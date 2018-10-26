@@ -4,7 +4,8 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.text_field :name, class: "form-control", placeholder: t("card.placeholder_name") %>
     <%= f.text_field :describe, class: "form-control", placeholder: t("card.placeholder_describe") %>
-    <%= f.check_box :activated %> <span><%= t "card.activated" %></span>
+    <%= f.check_box :activated, %> <span><%= t "card.activated" %></span>
   </div>
   <%= f.submit t("card.create"), class: "btn btn-primary btn-block" %>
 <% end %>
+

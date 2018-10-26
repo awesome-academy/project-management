@@ -2,8 +2,9 @@
   <div class="card h-100">
     <div class="card-body">
       <h4 class="card-title">
-        <%= link_to card.name, "#" %> <small>
-      </small>
+        <small>
+          <%= link_to card.name, card_path(card.id) %>
+        </small>
       </h4>
       <p class="card-text"><%= card.describe %></p>
       <%= link_to t("card.delete"), card_path(card.id), method: :delete,

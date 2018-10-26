@@ -1,4 +1,7 @@
 en:
+  card_create: "created card"
+  card_update: "update card"
+  comment: "comment"
   nameproject: "SPM"
   static:
     body_tilte: " Simple Project Management"
@@ -81,3 +84,20 @@ en:
     close: "Close"
     card: "card"
     add_card: "Add card"
+  event:
+    card_create: "card create"
+    card_update: "card update"
+    created: "Comment created!"
+    uncreated: "Comment uncreated!"
+    deleted: "Comment deleted!"
+    delete_error: "Comment delete error"
+    delete: "delete"
+    delete_confirm: "You sure?"
+    open: "open"
+    ago: "ago"
+    create: "Creat new Comment"
+    placeholder: "Enter Comment "
+    not_found: "not found"
+    edit: "edit"
+    updated: "updated"
+    close: "Close"
