@@ -8,6 +8,7 @@ class CardsController < ApplicationController
 
   def show
     @events = @card.events.order_by_created_at_desc
+      .page(params[:page]).per(Settings.constant.event_per_page)
     @event = Event.new
   end
 
