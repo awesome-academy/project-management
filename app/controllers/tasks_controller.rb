@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  layout "user_working"
+  layout "user"
   before_action :authenticate_user!
   before_action :get_project
   before_action :logged_in?, only: %i(create destroy new)
@@ -36,8 +36,9 @@ class TasksController < ApplicationController
   end
 
   def correct_project
+    @project = current_user.projects.find_by id: params[:project_id]
     @task = @project.tasks.find_by id: params[:id]
-    return if @task
+    return if @task && @project
     flash[:danger] = t "task.not_found"
     redirect_to :root
   end
