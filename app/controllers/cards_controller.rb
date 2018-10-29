@@ -54,7 +54,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit :user_id, :task_id, :name, :describe
+    params.require(:card).permit :user_id, :task_id, :name, :activated, :describe
   end
 
   def load_project_and_card

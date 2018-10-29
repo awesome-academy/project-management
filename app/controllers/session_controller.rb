@@ -3,7 +3,7 @@ class SessionController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
     if user&.authenticate params[:session][:password]
       log_in user
-      redirect_to projects_path
+      redirect_to :root
     else
       flash[:danger] = t "login.wrong_login"
       render :new
