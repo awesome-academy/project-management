@@ -1,0 +1,4 @@
+<% provide :title, t("static.profile") %>
+<%= @user.name %> <br>
+<%= @user.email %> <br>
+<%= l @user.created_at, format: :short  %>

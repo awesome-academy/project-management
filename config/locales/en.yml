@@ -14,7 +14,8 @@ en:
     home: "Home"
     help: "Help"
     sign_up: "Sign up"
-    login: "Login"
+    login: "Log in"
+    logout: "Log out"
     about_title : ">>>SPM<<<"
     about_content: " Project Management (like Trello https://trello.com)
                     Start: Oct, 18 2018 <br>
@@ -24,15 +25,19 @@ en:
     contact_me: "Contact me"
     contact_infor: "FRESHER-GROUP2-RUBY"
     help_content: ">>>>is under construction<<<<"
-    welcome: "Wellcome to SPM!"
+    welcome: "Welcome to SPM!"
+    profile: "Profile"
+    settings: "Settings"
   signup:
     sign_up: "Sign up"
+    user_not_found: "User not found"
   login:
     login: "Login"
     new_user: "New user?"
     sign_up_now: "Sign up now!"
     wrong_login: "Invalid email/password combination"
     required: "Login before continue"
+    remember: "Remember me"
   side_bar:
     dashboard: "Dash Board"
     sign_out: "Sign out"
@@ -101,3 +106,10 @@ en:
     edit: "edit"
     updated: "updated"
     close: "Close"
+  user:
+    edit_user: "Edit user"
+    save_change: "Save changes"
+    update_your_profile: "Update your profile"
+    profile_updated: "Profile updated"
+    please_log_in: "Please log in."
+    change: "Change"

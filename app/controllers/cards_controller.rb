@@ -8,6 +8,7 @@ class CardsController < ApplicationController
 
   def show
     @events = @card.events.order_by_created_at_desc
+      .page(params[:page]).per Settings.constant.event_per_page
     @event = Event.new
   end
 
@@ -53,7 +54,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit :user_id, :task_id, :name, :describe
+    params.require(:card).permit :user_id, :task_id, :name, :activated, :describe
   end
 
   def load_project_and_card
