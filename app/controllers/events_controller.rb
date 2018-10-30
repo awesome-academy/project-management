@@ -14,15 +14,6 @@ class EventsController < ApplicationController
     redirect_to card_path @card
   end
 
-  def destroy
-    if @event.destroy
-      flash[:success] = t "event.deleted"
-    else
-      flash[:danger] = t "event.delete_error"
-    end
-    redirect_to request.referrer || :root
-  end
-
   private
 
   def event_params

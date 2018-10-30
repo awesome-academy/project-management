@@ -1,0 +1,144 @@
+.card_detail header h3 {
+  margin: 0 0 3px 0;
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.card_detail header h4 {
+  margin: 3px 0 3px 0;
+  color: #939393;
+  display: block;
+  font-size: 1.13em;
+}
+
+.card_detail h5 {
+  font-size: 1em;
+  margin: 3px 0 7px 0;
+  display: block;
+  font-weight: bold;
+}
+
+.card_detail form {
+  display: inline;
+  margin-top: 0;
+}
+
+ul.card_comments {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+article.comment {
+  font-size: 14px;
+  padding-left: 40px;
+  position: relative;
+}
+
+section {
+  display: block;
+}
+
+ul.card_comments li {
+  list-style-type: none;
+  margin: 7px 0 7px 0;
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.add_comment {
+  textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    //border-color: rgb(169, 169, 169);
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+  }
+  input[type="submit"] {
+    overflow: hidden;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    transition: .2s;
+    padding: 7px 16px 7px 16px;
+    border: none;
+    color: white;
+    background: #393939;
+    display: block;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+}
+
+article.comment .content {
+  margin: 6px 0 4px 0;
+  width: 95%;
+  overflow-wrap: break-word;
+}
+
+article.comment {
+  font-size: 14px;
+  padding-left: 40px;
+  position: relative;
+}
+
+ul.card_comments li:last-child {
+  border-bottom: none;
+}
+
+ul.card_comments li {
+  list-style-type: none;
+  margin: 7px 0 7px 0;
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+article.comment header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+article, header, section {
+  display: block;
+}
+
+article.comment {
+  font-size: 14px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.quiet {
+  color: #939393;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.card_comments footer {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid #eaeaea;
+  color: #777777;
+}
+#task_form {
+  display: inline;
+}

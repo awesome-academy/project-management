@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  layout "user"
+  layout "user_working"
   before_action :authenticate_user!
   before_action :get_project
   before_action :logged_in?, only: %i(create destroy new)

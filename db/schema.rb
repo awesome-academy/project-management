@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_033638) do
+ActiveRecord::Schema.define(version: 2018_10_30_040926) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 2018_10_29_033638) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "card_id"
     t.bigint "user_id"
-    t.integer "event_type"
+    t.string "type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_type", default: 1
     t.index ["card_id"], name: "index_events_on_card_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

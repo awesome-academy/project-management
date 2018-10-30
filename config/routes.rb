@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     end
   end
   resources :cards, only: %i(show edit update destroy) do
-    resources :events, shallow: true
+    resources :events, only: %i(create), shallow: true
   end
 end
