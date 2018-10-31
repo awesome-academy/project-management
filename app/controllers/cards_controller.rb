@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  layout "user"
+  layout "user_working"
   before_action :authenticate_user!
   before_action :load_card, only: %i(show)
   before_action :load_project_and_card, only: %i(new create)
@@ -8,8 +8,8 @@ class CardsController < ApplicationController
 
   def show
     @events = @card.events.order_by_created_at_desc
-      .page(params[:page]).per Settings.constant.event_per_page
-    @event = Event.new
+    @event = @card.events.build user_id: current_user.id
+    @project = @card.task.project
   end
 
   def create
@@ -41,14 +41,24 @@ class CardsController < ApplicationController
   def edit; end
 
   def update
-    if @card.update card_params
-      flash[:success] = t "card.updated"
-      @card.events.create! user_id: current_user.id,
-        event_type: "card_update" , content: t("event.card_update")
-      redirect_to project_path @project
-    else
-      render :edit
+    ActiveRecord::Base.transaction do
+      @card = Card.find_by id: params[:id]
+      @task = Task.find_by id: params[:task_id]
+      if @task.nil? || @card.nil?
+        flash[:danger] = t "card.cannot_move_card"
+        redirect_to @card
+      end
+      @card.task_id = params[:task_id]
+      @card.save!
+      event = @card.events.build user_id: current_user.id,
+        event_type: Event.card_update,
+        content: t("card.move_to") + @task.name
+      event.save!
+      redirect_to @card
     end
+    rescue ActiveRecord::RecordInvalid
+      flash[:danger] = t "card.cannot_move_card"
+      redirect_to @card
   end
 
   private

@@ -1,5 +1,51 @@
-<h1><%= @card.name %></h1>
-<h2><%= @card.user.name %> </h2>
-<%= render @events %>
-<%= paginate @events %>
-<%= render "events/form" %>
+<section class="row">
+  <%= link_to @project do %>
+    <button class="btn btn-danger"><%= t "card.close" %></button>
+  <% end %>
+  <article class="col-md-6 col-md-offset-3 card_detail">
+    <header class="card_title">
+      <h3>
+        <span class="edit"><%= @card.name %></span>
+      </h3>
+      <h4><%= t "card.in_list" %>
+        <span id="task_name"><%= @card.task.name %></span>
+        <%= form_tag @card, id: "task_form", method: :put do %>
+          <%= select_tag "task_id",
+            options_for_select(init_project_task),
+            class: "hide"
+          %>
+        <% end %>
+      </h4>
+    </header>
+    <p>
+    </p>
+    <h5><%= t "card.activity" %></h5>
+    <%= form_for [@card, @event], :html => {:class => "add_comment"} do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :event_type, value: "comment" %>
+      <%= f.text_area :content, class: "card_comment_content",
+        placeholder: t("event.placeholder") %>
+      <%= f.submit t("event.comment") %>
+    <% end %>
+    <ul class="card_comments">
+      <% @events.each do |event| %>
+        <li class="animated">
+          <article class="comment">
+            <header>
+              <%= image_tag show_avatar event.user_email %>
+            </header>
+            <%= link_to event.user_name, event.user %>
+            <div class="content">
+              <%= event.content %>
+            </div>
+            <footer>
+              <abbr>
+                <%= l event.created_at, format: :short %>
+              </abbr>
+            </footer>
+          </article>
+        </li>
+      <% end %>
+    </ul>
+  </article>
+</section>
