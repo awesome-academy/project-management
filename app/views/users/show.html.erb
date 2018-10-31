@@ -1,4 +1,15 @@
 <% provide :title, t("static.profile") %>
-<%= @user.name %> <br>
-<%= @user.email %> <br>
-<%= l @user.created_at, format: :short  %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-2  border">
+    <div class="col-md-3 img">
+      <%= image_tag show_avatar @user.email %>
+    </div>
+    <div class="col-md-5 details">
+      <br>
+      <blockquote>
+        <h5> <%= @user.name %></h5>
+        <small><cite title="Source Title"> <%= @user.email %> <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+    </div>
+  </div>
+</div>

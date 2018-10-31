@@ -3,6 +3,7 @@ en:
   card_update: "update card"
   comment: "comment"
   nameproject: "SPM"
+  default_task: "todo"
   static:
     body_tilte: " Simple Project Management"
     the: "The"
@@ -94,6 +95,7 @@ en:
     cannot_move_card: "Cannot move card"
     move_to: "Move to "
     activity: "Activity"
+    show: "show card"
   event:
     card_create: "Create card"
     card_update: "card update"

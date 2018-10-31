@@ -5,6 +5,15 @@
       <% @tasks.each do |task| %>
         <%= render task %>
       <% end %>
+      <div class="list-wrapper">
+        <div class="list">
+          <%= link_to new_project_task_path(:project_id => @project.id),
+            class: "open-card-composer" do %>
+            <span class="icon-sm glyphicon glyphicon-plus"></span>
+            <span><%= t "task.create" %></span>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

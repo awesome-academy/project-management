@@ -2,7 +2,7 @@ $(document).ready(function() {
   modal = $('#myModal');
   if (modal != null)
     modal.modal('toggle');
-  if ($('.card_detail') != null) {
+  if ($('.card_detail').get(0)) {
     $('#wrapper').removeClass('position');
     $('#task_name').click(function () {
       $('#task_name').addClass('hide');

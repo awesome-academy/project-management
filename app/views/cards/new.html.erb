@@ -1,1 +1,5 @@
-<div><%= render "cards/form" %></div>
+<% provide :title, t("card.add_card") %>
+<h1><%= t "card.add_card" %></h1>
+<div class="row">
+  <%= render "cards/form" %>
+</div>

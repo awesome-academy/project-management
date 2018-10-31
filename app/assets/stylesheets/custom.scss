@@ -7,6 +7,10 @@
   padding-top: 60px;
 }
 
+form input[type="submit"] {
+  margin-top: 10px;
+}
+
 section {
   overflow: auto;
 }
@@ -118,6 +122,10 @@ footer {
 
 .portfolio-item {
   margin-bottom: 30px;
+  text-decoration: none;
+  a:hover{
+    text-decoration: none;
+  }
 }
 
 .h-100 {

@@ -12,4 +12,8 @@ module ProjectsHelper
   def is_project_manager?
     @is_manager ||= current_user.is_project_manager? @project
   end
+
+  def create_deault_tasks
+    @project.tasks.create! name: t("default_task")
+  end
 end

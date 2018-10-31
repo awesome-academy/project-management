@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   layout :resolve_layout
   before_action :authenticate_user!
   before_action :get_project, only: %i(show_member add_member show)
+  include ProjectsHelper
 
   def index
     @project = current_user.projects.order_created_at
@@ -9,7 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @tasks = @project.tasks.order_by_created_at_desc
+    @tasks = @project.tasks.order_by_created_at_asc
   end
 
   def new
@@ -23,7 +24,8 @@ class ProjectsController < ApplicationController
       relationship = @project.relationships
         .build user: current_user, is_manager: true
       relationship.save!
-      redirect_to projects_path
+      create_deault_tasks
+      redirect_to project_path @project
     end
   rescue ActiveRecord::RecordInvalid
     render :new
@@ -78,7 +80,7 @@ class ProjectsController < ApplicationController
 
   def resolve_layout
     case action_name
-    when "index", "new"
+    when "index", "new", "create"
       "user"
     else
       "user_working"

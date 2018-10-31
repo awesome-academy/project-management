@@ -4,22 +4,24 @@
   <div class="col-lg-6 col-md-6 col-sm-7 col-centered">
     <h2><%= t "member.member" %></h2>
     <% @member.each do |item| %>
-      <% if is_project_manager? && (item.id != current_user.id) %>
-        <div class="btn-group" role="group" aria-label="Delete">
-          <button type="button" class="btn <%= manager_hightlight item %>">
+      <%= link_to user_path(item.id) do %>
+        <% if is_project_manager? && (item.id != current_user.id) %>
+          <div class="btn-group" role="group" aria-label="Delete">
+            <button type="button" class="btn <%= manager_hightlight item %>">
+              <%= item.name %>
+            </button>
+            <%= link_to delete_member_project_path(:user_id => item.id),
+              method: :delete do %>
+              <button type="  button" class="btn btn-danger" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <% end %>
+          </div>
+        <% else %>
+          <button class="btn <%= manager_hightlight item %>">
             <%= item.name %>
           </button>
-          <%= link_to delete_member_project_path(:user_id => item.id),
-            method: :delete do %>
-            <button type="button" class="btn btn-danger" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          <% end %>
-        </div>
-      <% else %>
-        <button class="btn <%= manager_hightlight item %>">
-          <%= item.name %>
-        </button>
+        <% end %>
       <% end %>
     <% end %>
     <% if is_project_manager? %>

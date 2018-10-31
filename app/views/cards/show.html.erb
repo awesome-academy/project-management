@@ -1,3 +1,4 @@
+<% provide :title, t("card.show") %>
 <section class="row">
   <%= link_to @project do %>
     <button class="btn btn-danger"><%= t "card.close" %></button>
@@ -32,7 +33,7 @@
         <li class="animated">
           <article class="comment">
             <header>
-              <%= image_tag show_avatar event.user_email %>
+              <%= image_tag show_avatar_comment event.user_email %>
             </header>
             <%= link_to event.user_name, event.user %>
             <div class="content">
