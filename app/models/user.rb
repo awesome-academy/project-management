@@ -24,11 +24,16 @@ class User < ApplicationRecord
     joins_relationship(project).select_info.order_manager
   end
   has_secure_password
+  class << self
+    def digest string
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
 
-  def User.digest string
-    cost = ActiveModel::SecurePassword.min_cost ?
-             BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
-    BCrypt::Password.create string, cost: cost
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def is_project_manager? project
@@ -36,13 +41,9 @@ class User < ApplicationRecord
       .is_manager?
   end
 
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
-
   def remember
     self.remember_token = User.new_token
-    update remember_digest: :remember_digest
+    update remember_digest: User.digest(remember_token)
   end
 
   def forget

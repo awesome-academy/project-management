@@ -1,5 +1,6 @@
 enabled_locales: ["en", "vi"]
-avatar_link: "https://robohash.org/%s?set=set4&size=30x30"
+avatar_link_comment: "https://robohash.org/%s?set=set4&size=30x30"
+avatar_link_show: "https://robohash.org/%s?set=set4&size=180x180"
 static:
   app_name: "SPM"
   link_to_github: "https://github.com/awesome-academy/project-management"
