@@ -1,8 +1,3 @@
-User.create!(name: "admin",
-  email: "admin@gmail.com",
-  password: "12345678",
-  password_confirmation: "12345678")
-
 10.times do |n|
   name = FFaker::NameVN.name
   email = "user#{n + 1}@gmail.com"
@@ -15,7 +10,7 @@ end
 users = User.order(:created_at).take(6)
 10.times do
   name = FFaker::Name.name
-  content = FFaker::Lorem.sentence(5)
+  content = FFaker::Lorem.sentence(4)
   project = Project.create!(name: name, describe: content)
   users.each {|user| user.projects << project}
   rand(2..5).times do
@@ -31,4 +26,12 @@ users = User.order(:created_at).take(6)
       end
     end
   end
+end
+admin = User.create!(name: "admin",
+  email: "admin@gmail.com",
+  password: "12345678",
+  password_confirmation: "12345678")
+
+Project.all.each do |project|
+  project.relationships.create! user_id: admin.id, is_manager: 1
 end
