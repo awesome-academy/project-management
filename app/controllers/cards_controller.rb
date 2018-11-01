@@ -1,9 +1,9 @@
 class CardsController < ApplicationController
   layout "user_working"
   before_action :authenticate_user!
-  before_action :load_card, only: %i(show)
+  before_action :load_card, only: %i(show update)
   before_action :load_project_and_card, only: %i(new create)
-  before_action :correct_card, only: %i(edit update destroy)
+  before_action :correct_card, only: %i(edit destroy)
   before_action :load_for_update, only: %i(edit update)
 
   def show
