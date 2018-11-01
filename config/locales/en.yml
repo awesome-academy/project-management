@@ -97,6 +97,7 @@ en:
     activity: "Activity"
     show: "show card"
     empty: "No more user"
+    not_permission: "Not permission"
   event:
     card_create: "Create card"
     card_update: "card update"
