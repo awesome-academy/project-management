@@ -2,6 +2,7 @@ class CardsController < ApplicationController
   layout "user_working"
   before_action :authenticate_user!
   before_action :load_card, only: %i(show update)
+  before_action :check_member, only: %i(show update)
   before_action :load_project_and_card, only: %i(new create)
   before_action :correct_card, only: %i(edit destroy)
   before_action :load_for_update, only: %i(edit update)
@@ -87,11 +88,21 @@ class CardsController < ApplicationController
     @card = current_user.cards.find_by id: params[:id]
     return if @card
     flash[:danger] = t "task.not_found"
-    redirect_to :root
+    redirect_to projects_path
   end
 
   def load_for_update
     @task = @card.task
     @project = @task.project
+  end
+
+  def check_member
+    project = @card.task.project
+    return unless project
+    members = project.users
+    return unless members
+    return if members.exists? current_user.id
+    flash[:danger] = t "card.not_permission"
+    redirect_to projects_path
   end
 end
