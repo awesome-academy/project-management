@@ -96,6 +96,7 @@ en:
     move_to: "Move to "
     activity: "Activity"
     show: "show card"
+    empty: "No more user"
   event:
     card_create: "Create card"
     card_update: "card update"
@@ -120,3 +121,6 @@ en:
     profile_updated: "Profile updated"
     please_log_in: "Please log in."
     change: "Change"
+  assign:
+    cannot_assign: "Cannot assign user"
+    event: "Assign %s to %s"

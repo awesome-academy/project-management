@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_040926) do
+ActiveRecord::Schema.define(version: 2018_11_01_032304) do
+
+  create_table "assigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id", "user_id"], name: "index_assigns_on_card_id_and_user_id", unique: true
+    t.index ["card_id"], name: "index_assigns_on_card_id"
+    t.index ["user_id"], name: "index_assigns_on_user_id"
+  end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -27,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_040926) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "card_id"
     t.bigint "user_id"
+    t.string "type"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +80,8 @@ ActiveRecord::Schema.define(version: 2018_10_30_040926) do
     t.string "remember_digest"
   end
 
+  add_foreign_key "assigns", "cards"
+  add_foreign_key "assigns", "users"
   add_foreign_key "cards", "tasks"
   add_foreign_key "cards", "users"
   add_foreign_key "events", "cards"

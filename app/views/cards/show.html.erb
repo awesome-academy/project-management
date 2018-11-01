@@ -20,6 +20,35 @@
     </header>
     <p>
     </p>
+    <div class="members">
+      <% @card.users.each do |user| %>
+        <%= link_to user do %>
+          <%= image_tag show_avatar_comment(user.email), alt: user.name %>
+        <% end %>
+       <% end %>
+      <div class="dropdown show drinline">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+           id="dropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-sm">...</button>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <% list_assignable_user = Assign.not_assign_yet @project, @card %>
+          <% if list_assignable_user.empty? %>
+            <a class="dropdown-item" href="#"><%= t "card.empty" %></a>
+          <% else %>
+            <% list_assignable_user.each do |user| %>
+              <%= link_to assign_card_path(user_id: user.id),
+                class: "dropdown-item", method: :post do %>
+                <%= image_tag show_avatar_comment(user.email),
+                  alt: user.name %>
+                <span><%= user.name %></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <h5><%= t "card.activity" %></h5>
     <%= form_for [@card, @event], :html => {:class => "add_comment"} do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>

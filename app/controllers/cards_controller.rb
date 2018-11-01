@@ -18,6 +18,7 @@ class CardsController < ApplicationController
       flash[:success] = t "card.created"
       @card.events.create! user_id: current_user.id,
         event_type: "card_create", content: t("event.card_create")
+      @card.assigns.create! user_id: current_user.id
       redirect_to project_path @project
     else
       flash[:danger] = t "card.uncreated"

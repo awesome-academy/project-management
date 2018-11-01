@@ -1,8 +1,0 @@
-<%= event.user.name %>
-<%= t event.event_type %>
-<%= event.card.name %>
-<%= time_ago_in_words event.created_at %> <%= t "event.ago" %><br>
-<%= event.content %>
-<%= link_to t("event.delete"), event_path(event.id), method: :delete,
-  data: {confirm: t("event.delete_confirm")} %>
-<br>
