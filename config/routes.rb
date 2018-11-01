@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   end
   resources :cards, only: %i(show edit update destroy) do
     resources :events, only: %i(create), shallow: true
+    member do
+      post "/assign/:user_id", to: "assign#create", :as => "assign"
+    end
   end
 end

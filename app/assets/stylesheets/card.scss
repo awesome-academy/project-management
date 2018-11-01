@@ -55,12 +55,10 @@ ul.card_comments li {
     padding: 10px;
     border: 1px solid #ccc;
     font-family: monospace;
-    //border-color: rgb(169, 169, 169);
     -webkit-appearance: textarea;
     background-color: white;
     -webkit-rtl-ordering: logical;
     flex-direction: column;
-    resize: auto;
     cursor: text;
     text-rendering: auto;
     color: initial;
@@ -141,4 +139,39 @@ article.comment {
 }
 #task_form {
   display: inline;
+}
+.card_detail .members{
+  img {
+    display: inline-block;
+  }
+  .drinline {
+    display: inline-block !important;
+  }
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  }
+  .dropdown-menu {
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+  }
 }
