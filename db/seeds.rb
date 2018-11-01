@@ -1,12 +1,12 @@
-User.create!(name: "test",
-  email: "test@gmail.com",
+User.create!(name: "admin",
+  email: "admin@gmail.com",
   password: "12345678",
   password_confirmation: "12345678")
 
 10.times do |n|
   name = FFaker::NameVN.name
-  email = "example-#{n + 1}@spm.com"
-  password = "password"
+  email = "user#{n + 1}@gmail.com"
+  password = "12345678"
   User.create!(name: name,
     email: email,
     password: password,
@@ -18,9 +18,17 @@ users = User.order(:created_at).take(6)
   content = FFaker::Lorem.sentence(5)
   project = Project.create!(name: name, describe: content)
   users.each {|user| user.projects << project}
-end
-projects = Project.all
-5.times do
-  name = FFaker::Name.name
-  projects.each {|p| p.tasks.create!(project_id: p.id, name: name)}
+  rand(2..5).times do
+    name = FFaker::Name.name
+    task = project.tasks.create! name: name
+    rand(0..3).times do
+      card = task.cards.create! name: FFaker::Name.name,
+        user_id: User.order("RAND()").first.id
+      rand(2..4).times do
+        card.events.create! user_id: User.order("RAND()").first.id,
+          content: FFaker::Lorem.sentence(2),
+          event_type: :comment
+      end
+    end
+  end
 end
