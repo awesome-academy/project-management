@@ -4,6 +4,6 @@ class Assign < ApplicationRecord
   validates :card, uniqueness: {scope: :user}, presence: true
   validates :user, uniqueness: {scope: :card}, presence: true
   scope :not_assign_yet, ->(project, card) {
-    project.users.where "`users`.`id` NOT IN (?)", card.users.select(:id)
+    project.users.where.not user_id: card.users.pluck(:id)
   }
 end
